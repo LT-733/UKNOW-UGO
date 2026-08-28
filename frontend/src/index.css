@@ -1,0 +1,254 @@
+
+
+        html, body {
+            margin: 0;
+            font-family: Tahoma;
+            line-height: 1.5;
+            color: #0f172a;
+        }
+
+        body {
+            background-color: #f6f7fb;
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.18) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.18) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+        .page {
+            /* font-family: Beastly clauworks; */
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 2.5vh 4vw;
+        }
+
+        .heading {  
+            text-align: center; 
+            margin-bottom: 20px;
+        }
+        .heading h1 {
+            font-family: "Bitcount Prop Double";
+            font-size: 20vh;
+            font-weight: 300;
+            color: #8c1515;
+            line-height: 0.7;
+            margin: 0;
+        }
+        .heading h3 {
+            font-family: "Inter";
+            font-size: 3.4vh;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        header {
+            position: absolute;
+            top: 2vh;
+            left: 2vw;
+            right: 2vw;
+            z-index: 11;
+        }
+
+        .headerRow {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .logoLink {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .siteLogo {
+            height: 5vh;
+            width: auto;
+            display: block;
+        }
+
+        .topActions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: -1.2vw;
+        }
+
+        .pillLink {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.85);
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.08s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+            border: 1px solid #d4d8e2;
+        }
+
+        .pillLink:hover {
+            transform: translateY(-1px);
+            border-color: rgba(140, 21, 21, 0.35);
+            box-shadow: 0 8px 22px rgba(2, 6, 23, 0.08);
+        }
+
+        .submitCorner {
+            position: fixed;
+            right: 0.8vw;
+            bottom: 2vh;
+            z-index: 12;
+        }
+
+        main {
+            width: 100%;
+            max-width: 760px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+            margin-top: -30vh;
+        }
+
+        .divider {
+            width: min(520px, 70%);
+            margin: 0;
+            border: none;
+            border-top: 1px solid rgba(15, 23, 42, 0.18);
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .textbox {
+            display: block;
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 8px 11px;
+            font-size: 2.2vh;
+            box-sizing: border-box;
+        }
+        .filterzz {
+            max-width: 640px;
+            width: 100%;
+            margin: 14px auto 20px auto;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filterzz label {
+            font-size: 3vh;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #374151;
+        }
+
+        .number-input,
+        .dropdown {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #d4d8e2;
+            background: white;
+            font-size: 1.8vh;
+            outline: none;
+            transition: border 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .number-input {
+            width: 80px;
+        }
+
+        .dropdown {
+            min-width: 160px;
+        }
+        /*
+        .number-input:focus,
+        .dropdown:focus {
+            border-color: #8c1515;
+            box-shadow: 0 0 0 3px rgba(140, 21, 21, 0.15);
+        }
+        */
+        .searchRow {
+            display: flex;
+            width: 100%;
+            max-width: 640px;
+            margin: 18px auto;
+            gap: 10px;
+        }
+
+        .textbox {
+            flex: 1;
+            padding: 12px 14px;
+            font-size: 2.2vh;
+            border-radius: 10px;
+            border: 1px solid #d4d8e2;
+            background: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            outline: none;
+            transition: border 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        /*
+        .textbox:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+        }
+        */
+
+        .searchB {
+            padding: 0 18px;
+            border-radius: 50px;
+            border: none;
+            background: #8c1515;
+            color: white;
+            font-size: 2vh;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .searchB:hover {
+            background: #c42f2f;
+        }
+
+        .searchB:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+        .homepageButton {
+            background: none;
+            border: none;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            cursor: pointer;
+            font-family: Tahoma;
+        }
+        .homepageButton h1 {
+            margin: 0;
+        }

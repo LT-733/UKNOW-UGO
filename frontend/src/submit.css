@@ -1,0 +1,252 @@
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html, body {
+            margin: 0;
+            height: 100%;
+            color: #0f172a;
+            font-family: Tahoma;
+            line-height: 1.5;
+        }
+
+        body {
+            background-color: #f6f7fb;
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.18) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.18) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+
+        header {
+            position: absolute;
+            top: 2vh;
+            left: 2vw;
+            right: 2vw;
+            z-index: 11;
+        }
+
+        .headerRow {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .logoLink {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .siteLogo {
+            height: 5vh;
+            width: auto;
+            display: block;
+        }
+
+        .topActions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: -1.2vw;
+        }
+
+        .pillLink {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #d4d8e2;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .pillLink:hover {
+            transform: translateY(-1px);
+            border-color: rgba(140, 21, 21, 0.35);
+            box-shadow: 0 8px 22px rgba(2, 6, 23, 0.08);
+        }
+
+        .bottomAction {
+            position: fixed;
+            bottom: 2vh;
+            z-index: 12;
+        }
+
+        .bottomLeft {
+            left: 0.8vw;
+        }
+
+        .page {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 3.5vh 4vw;
+        }
+
+        main {
+            width: 100%;
+            max-width: 860px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+            margin-top: 2vh;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .heading h1 {
+            font-family: "Bitcount Prop Double";
+            font-size: 16vh;
+            font-weight: 350;
+            color: #8c1515;
+            line-height: 0.75;
+            margin: 0;
+        }
+
+        .heading h3 {
+            font-family: Tahoma;
+            font-size: 3.6vh;
+            line-height: 1.15;
+            margin: 0;
+            margin-top: -80px;
+        }
+
+        .submitForm {
+            width: 100%;
+            max-width: 640px;
+            padding: 0;
+        }
+
+        .autoMeta {
+            width: 100%;
+            max-width: 640px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .fieldRow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .fieldFull {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.7vh;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #1f2937;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #d4d8e2;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 1rem;
+            background: #ffffff;
+            outline: none;
+            transition: border 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        input:focus {
+            border-color: #8c1515;
+            box-shadow: 0 0 0 3px rgba(140, 21, 21, 0.15);
+        }
+
+        .error {
+            margin-top: 4px;
+            color: #b91c1c;
+            font-size: 0.84rem;
+        }
+
+        .actions {
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submitBtn {
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: none;
+            background: #8c1515;
+            color: white;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+        }
+
+        .submitBtn:hover {
+            background: #c42f2f;
+        }
+
+        .link {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .success {
+            width: 100%;
+            max-width: 640px;
+            margin-top: 12px;
+            border: 1px solid #86efac;
+            background: #ecfdf3;
+            color: #166534;
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+
+        .success ul {
+            margin: 8px 0 0;
+            padding-left: 18px;
+        }
+
+        @media (max-width: 820px) {
+            .heading h1 {
+                font-size: 12vh;
+            }
+
+            .heading h3 {
+                font-size: 2.6vh;
+            }
+
+            .fieldRow {
+                grid-template-columns: 1fr;
+            }
+        }

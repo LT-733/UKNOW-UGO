@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2048" height="1024" viewBox="0 0 2048 1024">
+  <!-- background -->
+  <rect width="2048" height="1024" fill="#87CEEB"></rect>
+
+  <!-- face -->
+  <circle cx="1024" cy="512" r="260" fill="#FFD84D" stroke="#E0A800" stroke-width="8"></circle>
+
+  <!-- eyes -->
+  <circle cx="940" cy="460" r="28" fill="#000"></circle>
+  <circle cx="1108" cy="460" r="28" fill="#000"></circle>
+
+  <!-- smile -->
+  <path d="M900 560 Q1024 680 1148 560" stroke="#000" stroke-width="26" fill="none" stroke-linecap="round"></path>
+
+  <!-- optional longitude guide lines (faint, helps visualize UV wrap) -->
+  <g stroke="white" stroke-opacity="0.15" stroke-width="2">
+    <line x1="0" y1="0" x2="0" y2="1024"></line>
+    <line x1="512" y1="0" x2="512" y2="1024"></line>
+    <line x1="1024" y1="0" x2="1024" y2="1024"></line>
+    <line x1="1536" y1="0" x2="1536" y2="1024"></line>
+    <line x1="2048" y1="0" x2="2048" y2="1024"></line>
+  </g>
+</svg>

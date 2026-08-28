@@ -1,0 +1,6 @@
+source/
+source/**
+frontend/node_modules
+frontend/node_modules/**
+backend/tmp/
+backend/tmp/**

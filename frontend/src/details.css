@@ -1,0 +1,178 @@
+html {
+    overflow-y: auto;
+}
+
+html, body {
+    margin: 0;
+    font-family: Tahoma;
+    line-height: 1.5;
+    height: 100%;
+    color: #0f172a;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f6f7fb;
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.18) 1px, transparent 1px);
+    background-size: 100px 100px;
+}
+
+header {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    right: 2vw;
+    z-index: 11;
+}
+
+.headerRow {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.logoLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.siteLogo {
+    height: 5vh;
+    width: auto;
+    display: block;
+}
+
+.topActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: -1.2vw;
+}
+
+.pillLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #d4d8e2;
+}
+.pillLink:hover {
+    transform: translateY(-1px);
+    border-color: rgba(140, 21, 21, 0.3);
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.08);
+}
+
+.submitCorner {
+    position: fixed;
+    right: 0.8vw;
+    bottom: 2vh;
+    z-index: 12;
+}
+
+.tables {
+    display: flex;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    padding: 12vh 4vw 44px;
+    max-width: 1100px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.year-btn {
+    border-radius: 999px;
+    display: inline-flex;
+    border: 1px solid #d4d8e2;
+    background: white;
+    cursor: pointer;
+    font-family: Tahoma;
+    font-weight: 500;
+}
+
+.year-btn:hover {
+    border-color: rgba(140, 21, 21, 0.35);
+}
+
+table {
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.9);
+
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+table.Logo {
+    text-align: center;
+    width: 200px;
+}
+
+
+
+table.info {
+    flex: 1;
+}
+
+table.info td {
+    padding: 16px 24px;
+    color: #0f172a;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+table.info tr:last-child td {
+    border-bottom: none;
+}
+
+table.info strong {
+    font-size: 1.4rem;
+    color: #8c1515;
+}
+
+table.info img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin: 10px 0;
+    background: white;
+    border: 1px solid #d4d8e2;
+}
+
+table.info a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: white;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid #d4d8e2;
+}
+
+table.info a:hover {
+    transform: translateY(-1px);
+    border-color: rgba(140, 21, 21, 0.3);
+    box-shadow: var(--shadow);
+}
