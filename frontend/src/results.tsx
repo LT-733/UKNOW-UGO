@@ -10,7 +10,7 @@ function Results(){
     const yourgpa = parseFloat(searchParams.get("GPA") ?? "0.0")
     useEffect(() => {
         async function getCards() {
-            const rawCards = await fetch(`https://uknow-ugo.onrender.com/results?University=${searchParams.get("University") ?? ""}&Program=${searchParams.get("Program") ?? ""}`)
+            const rawCards = await fetch(`https://uknow-ugo-np1s.vercel.app/results?University=${searchParams.get("University") ?? ""}&Program=${searchParams.get("Program") ?? ""}`)
             console.log(rawCards)
             const data = await rawCards.json()
             setCard(data["Search Results"])

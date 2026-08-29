@@ -84,7 +84,7 @@ function Auth() {
                     <button name="Submit" className="submitBtn" onClick={(e)=>{
                         e.preventDefault()
                         async function registerAttempt(){
-                            const rawRegister = await fetch(`https://uknow-ugo.onrender.com/register`, {
+                            const rawRegister = await fetch(`https://uknow-ugo-np1s.vercel.app/register`, {
                                 method: "POST",
                                 headers: {"Content-Type": "application/json"},
                                 body: JSON.stringify({Email: Email, Password: Password, Username: Username})
@@ -121,7 +121,7 @@ function Auth() {
                 <button name="Submit" className="submitBtn" onClick={(e)=>{
                     e.preventDefault()
                     async function loginAttempt(){
-                        const rawjwtToken = await fetch(`https://uknow-ugo.onrender.com/auth`, {
+                        const rawjwtToken = await fetch(`https://uknow-ugo-np1s.vercel.app/auth`, {
                                                         method: "POST",
                                                         headers: { "Content-Type": "application/json" },
                                                         body: JSON.stringify({ Email: Email, Password: Password })

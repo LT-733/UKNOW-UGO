@@ -17,7 +17,7 @@ function Submit(){
 
     useEffect(()=> {
         async function getUnis() {
-            const rawUnis = await fetch(`https://uknow-ugo.onrender.com/universities`)
+            const rawUnis = await fetch(`https://uknow-ugo-np1s.vercel.app/universities`)
             const uniJson = await rawUnis.json()
             setuniversities(uniJson["Universities"] ?? [])
         }
@@ -27,7 +27,7 @@ function Submit(){
 
     useEffect(() => {
         async function getPrograms() {
-            const rawProgs = await fetch(`https://uknow-ugo.onrender.com/programs?University=${University}`)
+            const rawProgs = await fetch(`https://uknow-ugo-np1s.vercel.app/programs?University=${University}`)
             const progJson = await rawProgs.json()
             setprograms(progJson["Programs"] ?? [])
         }
@@ -104,7 +104,7 @@ function Submit(){
                         window.location.href = "/Auth"
                     }
                     async function submitAttempt(){
-                        const submission_response = await fetch(`https://uknow-ugo.onrender.com/submit`, {
+                        const submission_response = await fetch(`https://uknow-ugo-np1s.vercel.app/submit`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
