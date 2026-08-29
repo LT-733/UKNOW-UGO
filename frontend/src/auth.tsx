@@ -84,7 +84,7 @@ function Auth() {
                     <button name="Submit" className="submitBtn" onClick={(e)=>{
                         e.preventDefault()
                         async function registerAttempt(){
-                            const rawRegister = await fetch(`http://localhost:8080/register`, {
+                            const rawRegister = await fetch(`https://uknow-ugo.onrender.com/register`, {
                                 method: "POST",
                                 headers: {"Content-Type": "application/json"},
                                 body: JSON.stringify({Email: Email, Password: Password, Username: Username})
@@ -121,7 +121,7 @@ function Auth() {
                 <button name="Submit" className="submitBtn" onClick={(e)=>{
                     e.preventDefault()
                     async function loginAttempt(){
-                        const rawjwtToken = await fetch(`http://localhost:8080/auth`, {
+                        const rawjwtToken = await fetch(`https://uknow-ugo.onrender.com/auth`, {
                                                         method: "POST",
                                                         headers: { "Content-Type": "application/json" },
                                                         body: JSON.stringify({ Email: Email, Password: Password })

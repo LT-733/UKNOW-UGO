@@ -25,7 +25,7 @@ function Details() {
         async function getGrades() {
             if (University && Program) {
                 try {
-                    const rawGrades = await fetch(`http://localhost:8080/details?University=${encodeURIComponent(University)}&Program=${encodeURIComponent(Program)}`)
+                    const rawGrades = await fetch(`https://uknow-ugo.onrender.com/details?University=${encodeURIComponent(University)}&Program=${encodeURIComponent(Program)}`)
                     const parsedGrades = await rawGrades.json()
                     setGrades(parsedGrades["Results"] ?? [])
                 } catch (err) {

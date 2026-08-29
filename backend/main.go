@@ -62,7 +62,7 @@ type detailquery struct {
 type submission struct{
 	University string `form:"University" binding:"required"`
 	Program string `form:"Program" binding:"required"`
-	GPA sql.NullFloat64 `form:"GPA" binding:"required"`
+	GPA float32 `form:"GPA" binding:"required"`
 	User string `form:"UserId" json:"UserId" binding:"required"`
 }
 
@@ -340,7 +340,7 @@ func main()  {
 		})
 	})
 
-	r.GET("/ping", func (c *gin.Context)  {
+	r.Any("/ping", func (c *gin.Context)  {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong!",
 		})
