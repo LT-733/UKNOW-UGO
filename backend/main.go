@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
-	"fmt"
+	// "fmt"
 	"log"
 	"net/http"
 	"net/mail"
@@ -22,11 +22,11 @@ import (
 func connect() (*pgxpool.Pool) {
 	err := godotenv.Load()
 	if err != nil{
-		log.Fatal("You don't even have a env file man", err)
-		return nil
+		log.Println("You don't even have a env file man, hope you are in prod because we switching to env variables", err)
+		// return nil
 	}
 	dsn := "postgresql://" + os.Getenv("username") + ":" + os.Getenv("password") + "@" + os.Getenv("host_port") +"/defaultdb?sslmode=verify-full"
-	fmt.Println(dsn)
+	// fmt.Println(dsn)
 	ctx := context.Background()
 	conn, err := pgxpool.New(ctx, dsn)
 	if err != nil {
