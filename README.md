@@ -1,2 +1,2 @@
 # UKNOW
-UKNOW-UGO is written with golang. UKNOW is deprecated, and I tried to optimize the performance by offloading all search functionalities to PostgresQL.
+UKNOW-UGO is written with [go](go.dev). UKNOW is deprecated, and I tried to optimize the performance by offloading all search functionalities to PostgresQL.
