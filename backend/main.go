@@ -108,9 +108,9 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 			AND g.program = lg.program 
 			AND g.year = lg.max_year
 			WHERE p.university % $1 
-			AND similarity(p.university, $1) >= 0.5
+			AND similarity(p.university, $1) >= 0.3
 			AND p.program % $2
-			AND similarity(p.program, $2) >= 0.5
+			AND similarity(p.program, $2) >= 0.3
 			GROUP BY p.university, p.program;
 		`
 		args = []any{*university, *program}
@@ -136,7 +136,7 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 			AND g.program = lg.program 
 			AND g.year = lg.max_year
 			WHERE p.university % $1
-			AND similarity(p.university, $1) >= 0.6
+			AND similarity(p.university, $1) >= 0.3
 			GROUP BY p.university, p.program;
 		`
 		args = []any{*university}
@@ -162,7 +162,7 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 			AND g.program = lg.program 
 			AND g.year = lg.max_year
 			WHERE p.program % $1
-			AND similarity(p.program, $1)           >= 0.6 
+			AND similarity(p.program, $1)           >= 0.5
 			GROUP BY p.university, p.program;
 		`
 		args = []any{*program}
