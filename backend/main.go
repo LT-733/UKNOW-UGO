@@ -88,15 +88,87 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 	if university != nil && program != nil && *university != "" && *program != ""{
 		// select university, program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where similarity(university, $1) > 0.3 and similarity(program, $2) > 0.3 group by university, program
 		// query = "SELECT university, program, AVG(admission_average) FROM grades WHERE similarity(university, $1) > 0.3 AND similarity(program, $2) > 0.3 and year=(SELECT MAX(year) FROM grades) GROUP BY university, program"
-		query = "select programs.university, programs.program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where similarity(programs.university, $1) > 0.3 and similarity(programs.program, $2) > 0.3 group by programs.university, programs.program"
+		// query = "select programs.university, programs.program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where programs.university % $1 and programs.program % $2 group by programs.university, programs.program"
+		query = `
+			WITH latest_grades AS (
+				SELECT university, program, MAX(year) AS max_year
+				FROM grades
+				GROUP BY university, program
+			)
+			SELECT 
+				p.university, 
+				p.program, 
+				AVG(g.admission_average),
+				similarity(p.university, $1) AS uni_score,
+				similarity(p.program, $2) AS prog_score
+			FROM programs p 
+			LEFT JOIN latest_grades lg
+				ON p.university = lg.university 
+			AND p.program = lg.program
+			LEFT JOIN grades g 
+				ON g.university = lg.university 
+			AND g.program = lg.program 
+			AND g.year = lg.max_year
+			WHERE p.university % $1 
+			AND similarity(p.university, $1) >= 0.5
+			AND p.program % $2
+			AND similarity(p.program, $2) >= 0.5
+			GROUP BY p.university, p.program;
+		`
 		args = []any{*university, *program}
 	} else if university != nil && *university != "" {
 		// query = "SELECT university, program, AVG(admission_average) FROM grades WHERE similarity(university, $1) > 0.3 and year=(SELECT MAX(year) FROM grades) GROUP BY university, program"
-		query = "select programs.university, programs.program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where similarity(programs.university, $1) > 0.3 group by programs.university, programs.program"
+		// query = "select programs.university, programs.program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where programs.university % $1 group by programs.university, programs.program"
+		query = `
+			WITH latest_grades AS (
+				SELECT university, program, MAX(year) AS max_year
+				FROM grades
+				GROUP BY university, program
+			)
+			SELECT 
+				p.university, 
+				p.program, 
+				AVG(g.admission_average),
+				similarity(p.university, $1) AS uni_score
+			FROM programs p
+			LEFT JOIN latest_grades lg
+				ON p.university = lg.university 
+			AND p.program = lg.program
+			LEFT JOIN grades g 
+				ON g.university = lg.university 
+			AND g.program = lg.program 
+			AND g.year = lg.max_year
+			WHERE p.university % $1
+			AND similarity(p.university, $1) >= 0.6
+			GROUP BY p.university, p.program;
+		`
 		args = []any{*university}
 	} else if program != nil && *program != "" {
 		// query = "SELECT university, program, AVG(admission_average) FROM grades WHERE similarity(program, $1) > 0.3 and year=(SELECT MAX(year) FROM grades) GROUP BY university, program"
-		query = "select programs.university, programs.program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where similarity(programs.program, $1) > 0.3 group by programs.university, programs.program"
+		// query = "select programs.university, programs.program, avg(admission_average) from programs left join grades on programs.university=grades.university and programs.program=grades.program and grades.year=(select max(year) from grades g_sub WHERE g_sub.university = programs.university AND g_sub.program = programs.program) where programs.program % $1 group by programs.university, programs.program"
+		query = `
+			WITH latest_grades AS (
+				SELECT university, program, MAX(year) AS max_year
+				FROM grades
+				GROUP BY university, program
+			)
+			SELECT 
+				p.university, 
+				p.program, 
+				AVG(g.admission_average),
+				similarity(p.program, $1) AS prog_score
+			FROM programs p
+			LEFT JOIN latest_grades lg
+				ON p.university = lg.university 
+			AND p.program = lg.program
+			LEFT JOIN grades g 
+				ON g.university = lg.university 
+			AND g.program = lg.program 
+			AND g.year = lg.max_year
+			WHERE p.program % $1
+			AND similarity(p.program, $1)           >= 0.6 
+			GROUP BY p.university, p.program;
+		`
 		args = []any{*program}
 	} else {
 		// query = "SELECT university, program, AVG(admission_average) FROM grades where year=(SELECT MAX(year) FROM grades) GROUP BY university, program"
