@@ -98,9 +98,7 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 			SELECT 
 				p.university, 
 				p.program, 
-				AVG(g.admission_average),
-				similarity(p.university, $1) AS uni_score,
-				similarity(p.program, $2) AS prog_score
+				AVG(g.admission_average)
 			FROM programs p 
 			LEFT JOIN latest_grades lg
 				ON p.university = lg.university 
@@ -128,8 +126,7 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 			SELECT 
 				p.university, 
 				p.program, 
-				AVG(g.admission_average),
-				similarity(p.university, $1) AS uni_score
+				AVG(g.admission_average)
 			FROM programs p
 			LEFT JOIN latest_grades lg
 				ON p.university = lg.university 
@@ -155,8 +152,7 @@ func getaverage(connection *pgxpool.Pool, university *string, program *string) (
 			SELECT 
 				p.university, 
 				p.program, 
-				AVG(g.admission_average),
-				similarity(p.program, $1) AS prog_score
+				AVG(g.admission_average)
 			FROM programs p
 			LEFT JOIN latest_grades lg
 				ON p.university = lg.university 
